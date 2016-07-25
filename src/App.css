@@ -1,0 +1,44 @@
+.App {
+  text-align: center;
+}
+.screen{
+  background-color: lightgreen;
+  border: 3px solid black;
+  height: 405px;
+}
+.keypad{
+  background-color: darkgray;
+  border: 3px solid black;
+  height: 405px;
+}
+.jumbotron{
+  height: 500px;
+}
+h1{
+  text-align: left;
+}
+.menu-buttons{
+  width: 300px;
+}
+.btn-default{
+  float: right;
+  margin-left: 5px;
+  margin-top: 5px;
+  margin-right: 5px;
+}
+.btn-submit{
+  width: 300px;
+  margin-top: 4px;
+}
+.button-row{
+  display: inline-block;
+  margin-left: 65px;
+  margin-top: 10px;
+}
+.keypad-buttons{
+  height: 55px;
+  width: 55px;
+  border: none;
+}
+
+
