@@ -19,7 +19,6 @@ var Keypad = React.createClass({
         })
         return(
             <div className="keypad">
-             I am keypad
                 <table>
                     <thead>{keys}</thead>
                 </table>

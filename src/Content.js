@@ -2,12 +2,14 @@ import React from 'react'
 
 var Content = React.createClass({
     render: function(){
+        var accountInfo = this.props.accounts
+        var welcomeUser = accountInfo.map(function(info){
+            return info.name
+        })
         return(
             <div>
-                <button
-                    className="btn btn-submit"
-                    onClick={this.props.logout}
-                    >Logout</button>
+            <h4>Welcome: {welcomeUser}</h4>
+                
             </div>
 
         )

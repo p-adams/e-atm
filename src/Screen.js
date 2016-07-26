@@ -19,10 +19,14 @@ var Screen = React.createClass({
                     : 
                 <div className="row">
                     <div className="col-sm-6">
-                        <Content logout={this.props.logout}/>
+                        <Content
+                            accounts={this.props.accounts}
+                            />
                     </div>
                     <div className="col-sm-4">
-                          <MenuButtons/>
+                          <MenuButtons
+                           accounts={this.props.accounts}
+                           logout={this.props.logout}/>
                     </div>
                 </div>
             }

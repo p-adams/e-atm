@@ -53,6 +53,7 @@ var App = React.createClass({
           <div className="row">
             <div className="col-md-8">
               <Screen
+                accounts={this.props.accounts}
                 login={this.login}
                 logged={this.state.logged}
                 logout={this.logout}
