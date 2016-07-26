@@ -6,16 +6,17 @@ import Input from './Input.js'
 
 var Screen = React.createClass({
     render: function(){
-
         return(
         
             <div className="screen">
             {!this.props.logged ? 
                 <Input
+                    logged={this.props.logged}
+                    login={this.props.login}
                     pin={this.props.pin}
-                    handleGetPin={this.props.handleGetPin}
                     handleRm={this.props.handleRm}
-                    /> : 
+                    /> 
+                    : 
                 <div className="row">
                     <div className="col-sm-6">
                         <Content logout={this.props.logout}/>

@@ -3,11 +3,14 @@ import './App.css';
 import Screen from './Screen';
 import Keypad from './Keypad';
 
-
-
 var App = React.createClass({
+   
   getInitialState: function(){
-    return {numbers: [], pin: '', logged: false}
+    return {
+      numbers: [],
+      pin: '',
+      logged: false
+  }
   },
   addNumber: function(num){
     var number = [{n: num}]
@@ -19,22 +22,29 @@ var App = React.createClass({
       logged: false
     })
   },
-  getPin: function(pinNum){
-    this.setState({
-      pin: pinNum,
-      logged: true
-    })
-  },
   logout: function(){
     this.setState({
       logged: false,
       numbers: []
     })
   },
+  login: function(p){
+    var pinNum = parseInt(p)
+    var accountNumber = this.props.accounts.map(function(pin){
+      return pin.pin
+    })
+   if(accountNumber.indexOf(pinNum) !== -1){
+      this.setState({
+        pin: pinNum,
+        logged: true 
+    })
+   }else{
+     alert('Please enter valid pin')
+   }
+   console.log('user entered: ', p)
+  },
   render: function() {
     var keys = this.props.keys
-    console.log(this.state.logged)
-    console.log(this.state.pin)
     return (
       <div className="container">
       <h1>E-ATM</h1>
@@ -43,11 +53,11 @@ var App = React.createClass({
           <div className="row">
             <div className="col-md-8">
               <Screen
+                login={this.login}
                 logged={this.state.logged}
                 logout={this.logout}
                 handleRm={this.removeNumber}
                 pin={this.state.numbers}
-                handleGetPin={this.getPin}
               />
             </div>
             <div className="col-md-4">

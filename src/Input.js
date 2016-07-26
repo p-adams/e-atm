@@ -14,11 +14,13 @@ var Input = React.createClass({
                     value={pinNumbers}
                     >
                     </textArea>
+                   
                 <button
-                    onClick={this.props.handleGetPin.bind(null, pinNumbers)}
+                    onClick={this.props.login.bind(null, pinNumbers)}
                     className="btn btn-default"
                     disabled={pinNumbers.length===0}
                     >Enter</button>
+
                     <button
                     onClick={this.props.handleRm}
                     className="btn btn-default"

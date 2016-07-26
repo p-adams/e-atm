@@ -11,10 +11,14 @@ const KEYS = [
  
 ]
 
+const ACCOUNTS = [
+  {pin: 1234, name: 'John Smith', balance: 2500}
+]
+
 
 
 
 ReactDOM.render(
-  <App keys={KEYS}/>,
+  <App keys={KEYS} accounts={ACCOUNTS}/>,
   document.getElementById('root')
 );
