@@ -24,6 +24,7 @@ var Screen = React.createClass({
                             showBalance={this.props.showBalance}
                             withdraw={this.props.withdraw}
                             deposit={this.props.deposit}
+                            current={this.props.current}
                             />
                     </div>
                     <div className="col-sm-4">

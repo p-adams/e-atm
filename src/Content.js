@@ -1,4 +1,6 @@
 import React from 'react'
+import Withdraw from './Withdraw.js'
+import Deposit from './Deposit.js'
 
 var Content = React.createClass({
     render: function(){
@@ -6,13 +8,16 @@ var Content = React.createClass({
         var welcomeUser = accountInfo.map(function(info){
             return info.name
         })
-        var userBalance = accountInfo.map(function(b){
+        /*var userBalance = accountInfo.map(function(b){
             return ' Your balance is currently: $' + b.balance
-        })
+        })*/
+     
         return(
             <div className="content">
             <h4>Welcome: {welcomeUser}</h4>
-                {this.props.showBalance ? userBalance : null}
+                {this.props.showBalance ? this.props.current :
+                    this.props.withdraw ? <Withdraw/> :
+                    this.props.deposit ? <Deposit/> : null}
             </div>
 
         )

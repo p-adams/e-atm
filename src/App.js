@@ -11,6 +11,7 @@ var App = React.createClass({
       numbers: [],
       pin: '',
       logged: false,
+      current: '',
       showBalance: false,
       withdraw: false, 
       deposit: false
@@ -39,17 +40,22 @@ var App = React.createClass({
     }
     //console.log('user entered: ', p)
   },
-  balance: function(){
-    this.setState({showBalance: true, withdraw: false, deposit: false})
+  handleBalance: function(){
+    var currentBalance = this.props.accounts.map(function(i){
+      return i.balance
+    })
+    var b = parseInt(currentBalance)
+    this.setState({current: b, showBalance: true, withdraw: false, deposit: false})
   },
-  withdraw: function(){
+  handleWithdraw: function(){
     this.setState({withdraw: true, showBalance: false, deposit: false})
   },
-  deposit: function(){
+  handleDeposit: function(){
     this.setState({deposit: true, showBalance: false, withdraw: false})
   },
   render: function() {
     var keys = this.props.keys
+    console.log(this.state.current)
     return (
       <div className="container">
       <h1>E-ATM</h1>
@@ -64,12 +70,13 @@ var App = React.createClass({
                 logout={this.logout}
                 handleRm={this.removeNumber}
                 pin={this.state.numbers}
-                balance={this.balance}
+                balance={this.handleBalance}
                 showBalance={this.state.showBalance}
-                handleWithdraw={this.withdraw}
+                current={this.state.current}
+                handleWithdraw={this.handleWithdraw}
                 withdraw={this.state.withdraw}
-                handleDeposit={this.deposit}
-                deposit={this.state.depost} 
+                handleDeposit={this.handleDeposit}
+                deposit={this.state.deposit} 
               />
             </div>
             <div className="col-md-4">
