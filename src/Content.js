@@ -17,7 +17,12 @@ var Content = React.createClass({
             <h4>Welcome: {welcomeUser}</h4>
                 {this.props.showBalance ? this.props.current :
                     this.props.withdraw ? <Withdraw/> :
-                    this.props.deposit ? <Deposit/> : null}
+                    this.props.deposit ? 
+                    <Deposit 
+                        handleDeposit={this.props.handleDeposit}
+                        depositAmount={this.props.depositAmount}
+                        handleRm={this.props.handleRm}
+                        /> : null}
             </div>
 
         )

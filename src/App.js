@@ -9,9 +9,11 @@ var App = React.createClass({
   getInitialState: function(){
     return {
       numbers: [],
+      deposits: [],
+      depositAmount: '',
       pin: '',
-      logged: false,
       current: '',
+      logged: false,
       showBalance: false,
       withdraw: false, 
       deposit: false
@@ -19,10 +21,17 @@ var App = React.createClass({
   },
   addNumber: function(num){
     var number = [{n: num}]
-    this.setState({numbers: this.state.numbers.concat(number)})
+    this.setState({
+      numbers: this.state.numbers.concat(number),
+      deposits: this.state.deposits.concat(number)
+  })
   },
   removeNumber: function(){
-    this.setState({numbers: this.state.numbers.slice(0, -1), logged: false})
+    this.setState({
+       numbers: this.state.numbers.slice(0, -1),
+       deposits: this.state.deposits.slice(0, -1)
+       
+      })
   },
   logout: function(){
     this.setState({logged: false, numbers: []})
@@ -33,7 +42,7 @@ var App = React.createClass({
       return pin.pin
     })
     if(accountNumber.indexOf(pinNum) !== -1){
-      this.setState({pin: pinNum, logged: true})
+      this.setState({pin: pinNum, logged: true, deposits: []})
     }
     else{
      alert('Please enter valid pin')
@@ -45,17 +54,25 @@ var App = React.createClass({
       return i.balance
     })
     var b = parseInt(currentBalance)
-    this.setState({current: b, showBalance: true, withdraw: false, deposit: false})
+    this.setState({current: b + this.state.depositAmount, showBalance: true, withdraw: false, deposit: false})
   },
   handleWithdraw: function(){
     this.setState({withdraw: true, showBalance: false, deposit: false})
   },
-  handleDeposit: function(){
-    this.setState({deposit: true, showBalance: false, withdraw: false})
+  handleDeposit: function(dep){
+    var getDep = parseInt(dep)
+    //console.log(dep)
+    this.setState({
+      depositAmount: getDep,
+      deposit: true,
+      showBalance: false,
+      withdraw: false,
+      deposits: []
+    })
   },
   render: function() {
     var keys = this.props.keys
-    console.log(this.state.current)
+    console.log(this.state.depositAmount)
     return (
       <div className="container">
       <h1>E-ATM</h1>
@@ -65,6 +82,7 @@ var App = React.createClass({
             <div className="col-md-8">
               <Screen
                 accounts={this.props.accounts}
+                depositAmount={this.state.deposits}
                 login={this.login}
                 logged={this.state.logged}
                 logout={this.logout}
