@@ -6,10 +6,13 @@ var Content = React.createClass({
         var welcomeUser = accountInfo.map(function(info){
             return info.name
         })
+        var userBalance = accountInfo.map(function(b){
+            return ' Your balance is currently: $' + b.balance
+        })
         return(
-            <div>
+            <div className="content">
             <h4>Welcome: {welcomeUser}</h4>
-                
+                {this.props.showBalance ? userBalance : null}
             </div>
 
         )

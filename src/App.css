@@ -14,6 +14,10 @@
 .jumbotron{
   height: 500px;
 }
+.content{
+  border: 3px solid pink;
+  height: 405px;
+}
 h1{
   text-align: left;
 }

@@ -21,11 +21,17 @@ var Screen = React.createClass({
                     <div className="col-sm-6">
                         <Content
                             accounts={this.props.accounts}
+                            showBalance={this.props.showBalance}
+                            withdraw={this.props.withdraw}
+                            deposit={this.props.deposit}
                             />
                     </div>
                     <div className="col-sm-4">
                           <MenuButtons
                            accounts={this.props.accounts}
+                           balance={this.props.balance}
+                           handleWithdraw={this.props.handleWithdraw}
+                           handleDeposit={this.props.handleDeposit}
                            logout={this.props.logout}/>
                     </div>
                 </div>
