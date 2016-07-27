@@ -4,15 +4,6 @@ import Screen from './Screen';
 import Keypad from './Keypad';
 
 
-/* 
-  Tonight: 
-  Implement MenuButtons
-    Clicking on check balance in MenuButtons component
-    should show user account balance in Content component
-    and hide MenuButtons unless 'cancel' is pressed within
-    Content
-*/
-
 var App = React.createClass({
    
   getInitialState: function(){
