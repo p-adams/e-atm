@@ -16,7 +16,7 @@ var Content = React.createClass({
             <div className="content">
             <h4>Welcome: {welcomeUser}</h4>
                 {this.props.showBalance ? this.props.current :
-                    this.props.withdraw ? <Withdraw amounts={this.props.amounts}/> :
+                    this.props.withdraw ? <Withdraw getWithdraw={this.props.getWithdraw}amounts={this.props.amounts}/> :
                     this.props.deposit ? 
                     <Deposit 
                         handleDeposit={this.props.handleDeposit}

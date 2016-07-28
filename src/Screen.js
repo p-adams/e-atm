@@ -29,8 +29,7 @@ var Screen = React.createClass({
                             handleDeposit={this.props.handleDeposit}
                             handleRm={this.props.handleRm}
                             amounts={this.props.amounts}
-
-                        
+                            getWithdraw={this.props.getWithdraw} 
                             />
                     </div>
                     <div className="col-sm-4">
@@ -38,7 +37,7 @@ var Screen = React.createClass({
                            accounts={this.props.accounts}
                            balance={this.props.balance}
                            handleWithdraw={this.props.handleWithdraw}
-                            depositMenu={this.props.depositMenu}
+                           depositMenu={this.props.depositMenu}
                            logout={this.props.logout}/>
                     </div>
                 </div>

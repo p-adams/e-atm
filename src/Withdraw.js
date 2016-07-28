@@ -2,10 +2,16 @@ import React from 'react'
 
 var Withdraw = React.createClass({
     render: function(){
+        var self = this
         var amounts = this.props.amounts.map(function(amount, i){
             return(
                     <tr key={i}>
-                        <td><button>{amount.a}</button></td>
+                        <td>
+                        <button
+                            className="btn btn-default"
+                            onClick={self.props.getWithdraw.bind(null, amount.a)}
+                        >$ {amount.a}</button>
+                        </td>
                     </tr>
             )
         })

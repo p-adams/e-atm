@@ -13,6 +13,7 @@ var App = React.createClass({
       depositAmount: '',
       pin: '',
       current: '',
+      withdrawAmt: '',
       logged: false,
       showBalance: false,
       withdraw: false, 
@@ -47,28 +48,31 @@ var App = React.createClass({
     else{
      alert('Please enter valid pin')
     }
-    //console.log('user entered: ', p)
   },
   handleBalance: function(){
     var currentBalance = this.props.accounts.map(function(i){
       return i.balance
     })
     var b = parseInt(currentBalance)
-    this.setState({current: b + this.state.depositAmount, showBalance: true, withdraw: false, deposit: false})
+    var dep = this.state.depositAmount
+    var wtd = this.state.withdrawAmt
+    this.setState({current: b + (dep - wtd), showBalance: true, withdraw: false, deposit: false})
   },
   handleWithdraw: function(){
     this.setState({withdraw: true, showBalance: false, deposit: false})
   },
+  getWithdraw: function(amt){
+    this.setState({withdrawAmt: amt})
+  },
   handleDeposit: function(dep){
-    var getDep = parseInt(dep)
-    //console.log(dep)
+    var removeDollar = dep.replace('$','')
+    var getDep = parseInt(removeDollar)
     this.setState({
       depositAmount: getDep,
       deposits: []
     })
   },
   depositMenu: function(){
-    alert('meow')
     this.setState({
       deposit: true,
       showBalance: false,
@@ -99,6 +103,7 @@ var App = React.createClass({
                 current={this.state.current}
                 handleWithdraw={this.handleWithdraw}
                 withdraw={this.state.withdraw}
+                getWithdraw={this.getWithdraw}
                 handleDeposit={this.handleDeposit}
                 deposit={this.state.deposit} 
               />
