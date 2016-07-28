@@ -13,7 +13,7 @@ var App = React.createClass({
       depositAmount: '',
       pin: '',
       current: '',
-      withdrawAmt: '',
+      withdraws: [],
       logged: false,
       showBalance: false,
       withdraw: false, 
@@ -55,14 +55,20 @@ var App = React.createClass({
     })
     var b = parseInt(currentBalance)
     var dep = this.state.depositAmount
-    var wtd = this.state.withdrawAmt
-    this.setState({current: b + (dep - wtd), showBalance: true, withdraw: false, deposit: false})
+   var numbers = this.state.withdraws.map(function(n){
+      return n.w
+    })
+    var sumOfWithdraws = numbers.reduce((a, b) => a + b, 0);
+    this.setState({current: b + (dep - sumOfWithdraws), showBalance: true, withdraw: false, deposit: false})
   },
   handleWithdraw: function(){
     this.setState({withdraw: true, showBalance: false, deposit: false})
   },
   getWithdraw: function(amt){
-    this.setState({withdrawAmt: amt})
+    var w = [{w: amt}]
+    this.setState({
+      withdraws: this.state.withdraws.concat(w)
+    })
   },
   handleDeposit: function(dep){
     var removeDollar = dep.replace('$','')
@@ -80,7 +86,6 @@ var App = React.createClass({
   },
   render: function() {
     var keys = this.props.keys
-    console.log(this.state.withdrawAmt)
     return (
       <div className="container">
       <h1>E-ATM</h1>

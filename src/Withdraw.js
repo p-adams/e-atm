@@ -12,6 +12,7 @@ var Withdraw = React.createClass({
                             onClick={self.props.getWithdraw.bind(null, amount.a)}
                         >$ {amount.a}</button>
                         </td>
+                        
                     </tr>
             )
         })

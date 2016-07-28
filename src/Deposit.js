@@ -7,7 +7,6 @@ var Deposit = React.createClass({
         }).join('')
         return(
             <div className="deposit">
-             Deposit menu
                 <input
                     className="form-control"
                     type="text"

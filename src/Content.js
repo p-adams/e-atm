@@ -13,7 +13,7 @@ var Content = React.createClass({
             <div className="content">
             <h4>Welcome: {welcomeUser}</h4>
                 {this.props.showBalance ? 
-                    <div>
+                    <div className="current-balance">
                         <h5>Your current balance is:</h5>
                         <h6>{balance}</h6>
                     </div> :
