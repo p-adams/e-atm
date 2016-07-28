@@ -8,14 +8,15 @@ var Content = React.createClass({
         var welcomeUser = accountInfo.map(function(info){
             return info.name
         })
-        /*var userBalance = accountInfo.map(function(b){
-            return ' Your balance is currently: $' + b.balance
-        })*/
-     
+        var balance = '$' + this.props.current
         return(
             <div className="content">
             <h4>Welcome: {welcomeUser}</h4>
-                {this.props.showBalance ? this.props.current :
+                {this.props.showBalance ? 
+                    <div>
+                        <h5>Your current balance is:</h5>
+                        <h6>{balance}</h6>
+                    </div> :
                     this.props.withdraw ? <Withdraw getWithdraw={this.props.getWithdraw}amounts={this.props.amounts}/> :
                     this.props.deposit ? 
                     <Deposit 

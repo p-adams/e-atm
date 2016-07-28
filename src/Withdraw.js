@@ -17,7 +17,6 @@ var Withdraw = React.createClass({
         })
         return(
             <div className="withdraw">
-            Withdraw menu
                 <table>
                     <thead>
                         {amounts}

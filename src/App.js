@@ -80,7 +80,7 @@ var App = React.createClass({
   },
   render: function() {
     var keys = this.props.keys
-    console.log(this.state.depositAmount)
+    console.log(this.state.withdrawAmt)
     return (
       <div className="container">
       <h1>E-ATM</h1>

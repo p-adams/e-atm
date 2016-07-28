@@ -17,6 +17,7 @@ var Input = React.createClass({
                    
                 <button
                     onClick={this.props.login.bind(null, pinNumbers)}
+                    
                     className="btn btn-default"
                     disabled={pinNumbers.length===0}
                     >Enter</button>

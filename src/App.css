@@ -2,7 +2,7 @@
   text-align: center;
 }
 .screen{
-  background-color: lightgreen;
+  background-color: white;
   border: 3px solid black;
   height: 405px;
 }
@@ -15,25 +15,26 @@
   height: 500px;
 }
 .content{
-  border: 3px solid pink;
   height: 405px;
 }
 h1{
   text-align: left;
 }
+h4{
+  text-align: center;
+}
 .menu-buttons{
-  width: 300px;
+  margin-top: 25%;
 }
 .btn-default{
+  width: 200px;
   float: right;
-  margin-left: 5px;
   margin-top: 5px;
-  margin-right: 5px;
+  margin-left: 5px;
+  background-color: deepskyblue;
+  color: white;
 }
-.btn-submit{
-  width: 300px;
-  margin-top: 4px;
-}
+
 .button-row{
   display: inline-block;
   margin-left: 65px;
@@ -44,5 +45,6 @@ h1{
   width: 55px;
   border: none;
 }
+
 
 
