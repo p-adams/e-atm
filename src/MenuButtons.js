@@ -19,7 +19,7 @@ var MenuButtons = React.createClass({
                         >Withdraw</button><br/>
                     <button 
                         className="btn btn-submit"
-                        onClick={this.props.handleDeposit}
+                        onClick={this.props.depositMenu}
                         >Deposit</button><br/>
                     
                 </div>

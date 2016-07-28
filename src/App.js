@@ -64,11 +64,15 @@ var App = React.createClass({
     //console.log(dep)
     this.setState({
       depositAmount: getDep,
-      deposit: true,
-      showBalance: false,
-      withdraw: false,
       deposits: []
     })
+  },
+  depositMenu: function(){
+    alert('meow')
+    this.setState({
+      deposit: true,
+      showBalance: false,
+      withdraw: false,})
   },
   render: function() {
     var keys = this.props.keys
@@ -83,6 +87,8 @@ var App = React.createClass({
               <Screen
                 accounts={this.props.accounts}
                 depositAmount={this.state.deposits}
+                depositMenu={this.depositMenu}
+                amounts={this.props.amounts}
                 login={this.login}
                 logged={this.state.logged}
                 logout={this.logout}

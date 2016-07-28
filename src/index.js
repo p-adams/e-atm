@@ -12,6 +12,14 @@ const KEYS = [
  
 ]
 
+const W_AMOUNTS = [
+
+  {a: 10}, {a: 20},
+  {a: 50}, {a: 100}
+
+]
+
+
 const ACCOUNTS = [
   {pin: 1234, name: 'John Smith', balance: 2500}
 ]
@@ -20,6 +28,8 @@ const ACCOUNTS = [
 
 
 ReactDOM.render(
-  <App keys={KEYS} accounts={ACCOUNTS}/>,
+  <App keys={KEYS} accounts={ACCOUNTS}
+    amounts={W_AMOUNTS}
+  />,
   document.getElementById('root')
 );

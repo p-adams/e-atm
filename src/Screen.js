@@ -28,6 +28,8 @@ var Screen = React.createClass({
                             depositAmount={this.props.depositAmount}
                             handleDeposit={this.props.handleDeposit}
                             handleRm={this.props.handleRm}
+                            amounts={this.props.amounts}
+
                         
                             />
                     </div>
@@ -36,7 +38,7 @@ var Screen = React.createClass({
                            accounts={this.props.accounts}
                            balance={this.props.balance}
                            handleWithdraw={this.props.handleWithdraw}
-                           handleDeposit={this.props.handleDeposit}
+                            depositMenu={this.props.depositMenu}
                            logout={this.props.logout}/>
                     </div>
                 </div>

@@ -2,19 +2,19 @@ import React from 'react'
 
 var Withdraw = React.createClass({
     render: function(){
+        var amounts = this.props.amounts.map(function(amount, i){
+            return(
+                    <tr key={i}>
+                        <td><button>{amount.a}</button></td>
+                    </tr>
+            )
+        })
         return(
             <div className="withdraw">
             Withdraw menu
                 <table>
                     <thead>
-                        <tr>
-                            <td><button>$10</button></td>
-                            <td><button>$20</button></td>
-                        </tr>
-                        <tr>
-                            <td><button>$50</button></td>
-                            <td><button>$100</button></td>
-                        </tr>
+                        {amounts}
                     </thead>
                 </table>
             </div>
